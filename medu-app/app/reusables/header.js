@@ -1,9 +1,4 @@
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-
 export default function Header() {
-  const router = useRouter();
-
   return (
     <header className="flex flex-col bg-gradient-to-r from-[#00ffd1] via-cyan-400 to-sky-400 w-screen h-1/12">
       <div className="flex justify-between">
