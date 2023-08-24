@@ -17,7 +17,7 @@ function Card(props) {
   return (
     <div
       onClick={handleButtonClick}
-      className="flex flex-col h-52 w-40 bg-neutral-950 rounded-md relative group"
+      className="flex flex-col h-52 w-40 rounded-md relative group"
     >
       <Image
         className="z-1 absolute backface-hidden h-full w-full rounded-md opacity-20 group-hover:opacity-80 group-hover:border-white group-hover:border"

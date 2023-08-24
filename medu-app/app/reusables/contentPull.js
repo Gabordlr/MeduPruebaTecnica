@@ -1,7 +1,7 @@
 import Card from '../reusables/card'
 import OpenCard from './openCard'
 import entries from '../content/sample.json'
-import { useState, useEffect} from 'react'
+import { useState} from 'react'
 
 function ContentVal(props) {
     const arr =  entries.entries

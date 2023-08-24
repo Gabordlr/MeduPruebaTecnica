@@ -1,15 +1,32 @@
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
 
 function OpenCard(props) {
   const url = props.data.images["Poster Art"].url;
+
+  const zoomInVariants = {
+    hidden: { scale: 0.1, opacity: 0 },
+    visible: { scale: 1, opacity: 1 },
+    transition: {
+        type: "spring",
+        damping: 30,
+        delay: 0.5,
+        duration: 1,
+    },
+  };
 
   return (
     <div
       className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex justify-center items-center"
       onClick={props.onClick}
     >
-      <div className="flex items-center lg:top-[20%] lg:right-[20%] md:h-[500px] md:w-[900px] xs:w-52 xs:h-60 bg-gradient-radial from-teal-600 to-neutral-950 rounded-md">
+      <motion.div 
+        initial="hidden"
+        animate="visible"
+        variants={zoomInVariants}
+        className="flex md:flex-row xs:flex-col items-center lg:top-[20%] lg:right-[20%] md:h-[500px] md:w-[900px] xs:w-52 xs:h-96   bg-gradient-radial from-teal-600 to-neutral-950 rounded-md">
         <div className="w-1/3 h-5/6 bg-slate-300 m-5 rounded-xl relative">
             <Image
             className="z-1 absolute backface-hidden h-full w-full rounded-md opacity-40 group-hover:opacity-80 group-hover:border-white group-hover:border"
@@ -26,22 +43,16 @@ function OpenCard(props) {
             alt={props.data.title}
           />
         </div>
-        <div className="flex w-[55%] flex-col self-start mt-8">
-          <h2 className="text-4xl font-extrabold md:text-xl">{props.data.title}</h2>
-          <h5 className="text-base font-thin md:text-xs">{props.data.releaseYear}</h5>
-          <h5 className="text-base font-thin md:text-xs">{props.data.programType}</h5>
-          <h4 className="text-2xl pt-16 font-light md:text-sm">Description</h4>
-          <p className="text-base font-normal md:text-xs">
+        <div className="flex w-[55%] flex-col self-start md:mt-8 xs:m-8">
+          <h2 className="lg:text-5xl font-extrabold sm:text-xl">{props.data.title}</h2>
+          <h5 className="lg:text-base font-thin sm:text-xs">{props.data.releaseYear}</h5>
+          <h5 className="lg:text-base font-thin sm:text-xs">{props.data.programType}</h5>
+          <h4 className="lg:text-2xl pt-16 font-light md:text-xs xs:hidden md:block">Description</h4>
+          <p className="lg:text-base font-normal sm:text-xs xs:hidden md:block">
             {props.data.description}
           </p>
         </div>
-        <button
-          onClick={props.onClick}
-          className="self-start m-5 hover:text-teal-400"
-        >
-          x
-        </button>
-      </div>
+      </motion.div>
     </div>
   );
 }

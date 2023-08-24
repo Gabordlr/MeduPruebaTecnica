@@ -4,6 +4,7 @@ import Header from "@/app/reusables/header";
 import DisplayScreen from "@/app/page/dispplayScreen";
 import { useState } from "react";
 
+
 function Home() {
   const [disPage, setDisPage] = useState(false);
 
