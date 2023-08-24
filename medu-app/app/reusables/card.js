@@ -1,20 +1,24 @@
 import Image from "next/image";
 
 function Card(props) {
+  // Shorten description and title
   const shortDescription = props.data.description
     ? props.data.description.substring(0, 32) + "..."
     : "";
 
+    // Shorten title
   const shortTitle =
     props.data.title.length >= 15
       ? props.data.title.substring(0, 15) + "..."
       : props.data.title;
 
+  // Function to handle button click
   const handleButtonClick = () => {
-    props.onClick(props.data);
+    props.onClick(props.data); // Call parent function recieved as props
   };
 
   return (
+    <div className="h-56 w-10">
     <div
       onClick={handleButtonClick}
       className="flex flex-col h-52 w-40 rounded-md relative group"
@@ -35,6 +39,7 @@ function Card(props) {
       />
       <h1 className="font-thin text-2xl z-5 m-5 group-hover:hidden">{shortTitle}</h1>
       <div className="font-medium text-sm m-3 group-hover:hidden">{shortDescription}</div>
+    </div>
     </div>
   );
 }

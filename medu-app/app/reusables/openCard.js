@@ -1,17 +1,18 @@
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"; // Animation
 
 
-function OpenCard(props) {
-  const url = props.data.images["Poster Art"].url;
+function OpenCard(props) { // Open card component
+  const url = props.data.images["Poster Art"].url; // get image url
 
+  // Animation
   const zoomInVariants = {
-    hidden: { scale: 0.1, opacity: 0 },
-    visible: { scale: 1, opacity: 1 },
-    transition: {
+    hidden: { scale: 0.1, opacity: 0 }, // Initial state
+    visible: { scale: 1, opacity: 1 },  // Final state
+    transition: { // Transition
         type: "spring",
-        damping: 30,
+        damping: 30, // Slow down the animation
         delay: 0.5,
         duration: 1,
     },
@@ -28,6 +29,7 @@ function OpenCard(props) {
         variants={zoomInVariants}
         className="flex md:flex-row xs:flex-col items-center lg:top-[20%] lg:right-[20%] md:h-[500px] md:w-[900px] xs:w-52 xs:h-96   bg-gradient-radial from-teal-600 to-neutral-950 rounded-md">
         <div className="w-1/3 h-5/6 bg-slate-300 m-5 rounded-xl relative">
+            {/* Default Image*/}
             <Image
             className="z-1 absolute backface-hidden h-full w-full rounded-md opacity-40 group-hover:opacity-80 group-hover:border-white group-hover:border"
             width={props.data.images["Poster Art"].width}
@@ -35,6 +37,7 @@ function OpenCard(props) {
             src="https://www.altavod.com/assets/images/poster-placeholder.png"
             alt="Photo de peliculas" // Handle image load error
             />
+            {/* Movie Image*/}
           <Image
             className="absolute rounded-lg backface-hidden h-full w-full"
             width={props.data.images["Poster Art"].width}

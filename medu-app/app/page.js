@@ -6,12 +6,14 @@ import { useState } from "react";
 
 
 function Home() {
-  const [disPage, setDisPage] = useState(false);
+  const [disPage, setDisPage] = useState(false); // Display page state variable
 
+  // Handle display page if true 
   const handleDisplay = () => {
     setDisPage(true);
   };
 
+  // Handle back button if false
   const handleBack = () => {
     setDisPage(false);
   };
@@ -35,7 +37,7 @@ function Home() {
       {disPage ? 
       <div className="flex flex-col w-full p-5">
       <DisplayScreen />
-      <button className="w-10 h-10 m-5" onClick={handleBack}>
+      <button className="w-10 h-10 m-5 self-end" onClick={handleBack}>
           <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"></path>
           </svg>
@@ -48,3 +50,4 @@ function Home() {
 }
 
 export default Home;
+

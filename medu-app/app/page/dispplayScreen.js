@@ -2,26 +2,23 @@ import ContentVal from '@/app/reusables/contentPull'
 import { useState } from 'react'
 
 function DisplayScreen() {
-    const [year, setYear] = useState("2010");
-    const [category, setCategory] = useState("series");
-    const [searchQuery, setSearchQuery] = useState("");
+    const [year, setYear] = useState("2010"); // Default value of the year
+    const [category, setCategory] = useState("series"); // Default value of the category
+    const [searchQuery, setSearchQuery] = useState(""); // Default value of the search query
   
-    const handleYearChange = (event) => {
-      const selectedYear = event.target.value;
-      setYear(selectedYear);
-      console.log("Selected Year:", selectedYear);
+    const handleYearChange = (event) => { // Handle year change
+      const selectedYear = event.target.value; // Get new year
+      setYear(selectedYear); // Update year
     };
   
-    const handleCategoryChange = (event) => {
-      const selectedCategory = event.target.value;
-      setCategory(selectedCategory);
-      console.log("Selected Category:", selectedCategory);
+    const handleCategoryChange = (event) => { // Handle category change
+      const selectedCategory = event.target.value; // Get new category
+      setCategory(selectedCategory); // Update category
     };
   
-    const handleSearchQueryChange = (event) => {
-      const query = event.target.value;
-      setSearchQuery(query);
-      console.log("Search Query:", query);
+    const handleSearchQueryChange = (event) => { // Handle search query change
+      const query = event.target.value; // Get new search query
+      setSearchQuery(query); // Update search query
     };
 
     return (

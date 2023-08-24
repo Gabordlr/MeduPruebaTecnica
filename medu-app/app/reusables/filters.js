@@ -2,28 +2,28 @@
 import { useState } from "react";
 
 export default function Index(props) {
-  const [year, setYear] = useState("2010");
-  const [category, setCategory] = useState("Both");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [year, setYear] = useState("2010"); // Default value of the year
+  const [category, setCategory] = useState("Both"); // Default value of the category
+  const [searchQuery, setSearchQuery] = useState(""); // Default value of the search query
 
-  const handleYearChange = (event) => {
+  const handleYearChange = (event) => { // Handle year change
     const selectedYear = event.target.value;
-    setYear(selectedYear);
-    props.updatesValues(selectedYear, category)
+    setYear(selectedYear); // Update year
+    props.updatesValues(selectedYear, category) // Call parent function recieved as props with the new values
     console.log("Selected Year:", selectedYear);
   };
 
-  const handleCategoryChange = (event) => {
+  const handleCategoryChange = (event) => { // Handle category change
     const selectedCategory = event.target.value;
-    setCategory(selectedCategory);
-    props.updatesValues(year, selectedCategory)
+    setCategory(selectedCategory); // Update category
+    props.updatesValues(year, selectedCategory) // Call parent function recieved as props with the new values
     console.log("Selected Category:", selectedCategory);
   };
 
-  const handleSearchQueryChange = (event) => {
-    const query = event.target.value;
-    setSearchQuery(query);
-    props.updatesValues(selectedYear, category)
+  const handleSearchQueryChange = (event) => { // Handle search query change
+    const query = event.target.value; 
+    setSearchQuery(query); // Update search query
+    props.updatesValues(selectedYear, category) // Call parent function recieved as props with the new values
     console.log("Search Query:", query);
   };
 
@@ -57,13 +57,11 @@ export default function Index(props) {
           <option>Series</option>
           <option>Movies</option>
         </select>
-        {/* ... */}
       </div>
 
       {/* Search Input */}
       <div className="block relative">
         <span className="h-full absolute inset-y-0 left-0 flex items-center pl-2">
-          {/* ... */}
         </span>
         <input
           placeholder="Search"
@@ -75,4 +73,3 @@ export default function Index(props) {
     </div>
   );
 }
-

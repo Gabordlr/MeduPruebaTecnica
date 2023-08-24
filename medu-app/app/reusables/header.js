@@ -1,9 +1,12 @@
+import React from 'react';
+
 export default function Header() {
   return (
     <header className="flex flex-col bg-gradient-to-r from-[#00ffd1] via-cyan-400 to-sky-400 w-screen h-1/12">
       <div className="flex justify-between">
         <h1 className="text-4xl p-5 font-bold text-gray-950">Medu Movie Service</h1>
         <div>
+          {/* Button that currently doesnt have any function*/}
           <button
             className="self-end m-5 relative text-center h-10 px-5 transition-all duration-500
             before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-zinc-400 before:transition-all
@@ -13,7 +16,7 @@ export default function Header() {
           >
             <span className="relative text-white uppercase font-thin">Login</span>
           </button>
-          
+          {/* Button that currently doesnt have any function*/}
           <button
             className="m-5 relative text-center h-10 px-5 transition-all duration-500
             before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-zinc-400 before:transition-all
