@@ -28,7 +28,7 @@ function OpenCard(props) { // Open card component
         animate="visible"
         variants={zoomInVariants}
         className="flex md:flex-row xs:flex-col items-center lg:top-[20%] lg:right-[20%] md:h-[500px] md:w-[900px] xs:w-52 xs:h-96   bg-gradient-radial from-teal-600 to-neutral-950 rounded-md">
-        <div className="w-1/3 h-5/6 bg-slate-300 m-5 rounded-xl relative">
+        <div className="md:w-1/3 h-5/6 bg-slate-300 m-5 rounded-xl relative xs:w-2/3">
             {/* Default Image*/}
             <Image
             className="z-1 absolute backface-hidden h-full w-full rounded-md opacity-40 group-hover:opacity-80 group-hover:border-white group-hover:border"
@@ -39,7 +39,7 @@ function OpenCard(props) { // Open card component
             />
             {/* Movie Image*/}
           <Image
-            className="absolute rounded-lg backface-hidden h-full w-full"
+            className="absolute rounded-lg backface-hidden h-full w-full "
             width={props.data.images["Poster Art"].width}
             height={props.data.images["Poster Art"].height}
             src={url}

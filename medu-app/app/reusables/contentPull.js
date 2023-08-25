@@ -23,26 +23,26 @@ function ContentVal(props) {
 
     const handleButtonClickRight = () => {
       if (numResu < filArr.length-20)
-      setNumResu(numResu+20); // Call parent function recieved as props
+      setNumResu(numResu+20); // change offset to show next 20 results
     };
 
     const handleButtonClickLeft = () => {
       if (numResu > 0)
-        setNumResu(numResu-20); // Call parent function recieved as props
+        setNumResu(numResu-20); //  change offset to show previous 20 results
     };
 
 
-
+    // Filter the array to only include the entries that match the filters
     const filArr = arr.filter((entry) => ((entry.programType === props.category || props.category === "both") && entry.releaseYear >= props.year && entry.title.includes(props.searchQuery)))
 
+    // Sort the array alphabetically
     filArr.sort((a, b) => a.title.localeCompare(b.title));
     
     
   return (
     <div className='flex flex-col items-center bg-green'>
     <div className='grid lg:grid-cols-5 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 py-10 w-full p-5'>
-            {/* Map through the array and create a card for each entry that matches the filters */}
-            {/* The filter uses the parameters pessed as props*/}
+            {/* this functions display all the elements in cunks of 20 elements*/}
             {filArr.slice(numResu, numResu+20).map((entry) => (
                 <Card 
                     key={entry.id}
